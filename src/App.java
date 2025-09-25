@@ -36,8 +36,23 @@ public class App {
 
     public static void main(String[] args) throws Exception {
 
-        String preDefinedPIN = "1234";
         Scanner inputs = new Scanner(System.in);
+        String preDefinedPIN;
+        boolean PINLength = false;
+
+        do {
+            System.out.println("Enter the PIN you want to set: ");
+            preDefinedPIN = inputs.nextLine();
+
+            if (preDefinedPIN.length() == 5 && preDefinedPIN.matches("\\d{5}")) {
+                PINLength = true; 
+
+                
+                System.out.println("You setted up your PIN");
+            } else {
+                System.out.println("Invalid Input! Please enter your PIN exactly 5 digits");
+            }
+        } while (!PINLength);
 
         for (int i = 0; i < 3; i++) {
             System.out.println("Enter Your PIN");
